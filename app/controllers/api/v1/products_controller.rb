@@ -15,6 +15,28 @@ class Api::V1::ProductsController < ApplicationController
         end
     end
 
+    def update
+        if @product.update(product_params)
+          render json: @product
+        else
+          render json: @product.errors, status: :unprocessable_entity
+        end
+      end
+      
+      def destroy
+        @product.destroy
+      end
+
+
       private
+
+      def set_product
+        @product = Product.find(params[:id])
+      end
+
+      def product_params
+        params.require(:product).permit(:name, :category, :description, :image, :price, :brand, :rating, :numReviews, :countInStock)
+      end
+
             
 end
