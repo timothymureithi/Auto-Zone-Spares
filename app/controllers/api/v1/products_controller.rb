@@ -11,16 +11,16 @@ class Api::V1::ProductsController < ApplicationController
         render json: @product
       end
 
-    def create
+      def create
         @product = Product.new(product_params)
-        if @product.save 
-            render json: @product
+        if @product.save
+          render json: @product
         else
-            render json: @product.errors, status: :unprocessable_entity
+          render json: @product.errors, status: :unprocessable_entity
         end
-    end
+      end
 
-    def update
+      def update
         if @product.update(product_params)
           render json: @product
         else
@@ -36,7 +36,7 @@ class Api::V1::ProductsController < ApplicationController
       private
 
       def set_product
-        @product = Product.find(params[:id])
+        @product = Product.find_by_id(params[:id])
       end
 
       def product_params

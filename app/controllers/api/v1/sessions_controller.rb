@@ -28,6 +28,4 @@ class Api::V1::SessionsController < ApplicationController
       params.require(:session).permit(:_json, :email, :password)
     end
 
-
-
 end

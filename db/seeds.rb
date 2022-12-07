@@ -8,6 +8,7 @@
 
 #users
 user1 = User.create(first_name: 'Timothy', last_name: 'Mureithi', email: 'tim@autozone.com', password: 'asdfg', password_confirmation: 'asdfg', isAdmin: true)
+user2 = User.create(first_name: 'Judy', last_name: 'Mureithi', email: 'judy@autozone.com', password: 'zxcvb', password_confirmation: 'zxcvb', isAdmin: false)
 
 #products
 p1 = Product.create(name: 'Vance & Hines VO2 Insight Air Cleaner For Harley', category: 'Air Filter', image: 'https://www.revzilla.com/product_images/1871/4158/vance_hines_vo2_insight_air_cleaner_for_harley_black_silver_750x750.jpg', description: 'Have a glimpse inside the inner workings of your engine with the fuel and air mixing right before your eyes.', price: 449.99, brand: 'Vance & Hines', countInStock: 8)
