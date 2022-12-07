@@ -1,4 +1,5 @@
-class ReviewsController < ApplicationController
+class Api::V1::ReviewsController < ApplicationController
+    before_action :set_product, except: [:destroy]
 
     def index
         render json: @product.reviews
@@ -8,5 +9,27 @@ class ReviewsController < ApplicationController
          @review = Review.find(params[:id])
          render json: @review
     end
+
+    def create
+        @review = @product.reviews.new(review_params)
+        @review.save
+          render json: @product
+      end
+
+      def destroy
+        @review = Review.find(params[:id])
+        @review.destroy
+        render json: @product
+      end
+
+      private
+
+      def set_product
+        @product = Product.find(params[:product_id])
+      end
+
+      def review_params
+        params.require(:review).permit(:product_id, :name, :rating, :comment)
+      end
 
 end
