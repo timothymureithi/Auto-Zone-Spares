@@ -6,7 +6,12 @@ class Api::V1::ProductsController < ApplicationController
         render json: @products
       end
 
-    def show
+      def show
+        @product.update_product
+        render json: @product
+      end
+
+    def create
         @product = Product.new(product_params)
         if @product.save 
             render json: @product
@@ -22,7 +27,7 @@ class Api::V1::ProductsController < ApplicationController
           render json: @product.errors, status: :unprocessable_entity
         end
       end
-      
+
       def destroy
         @product.destroy
       end
