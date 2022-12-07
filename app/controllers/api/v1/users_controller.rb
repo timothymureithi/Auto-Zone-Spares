@@ -39,4 +39,9 @@ class Api::V1::UsersController < ApplicationController
 
         private
 
+        def user_params
+            params.permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :isAdmin, :shipping => {}, :payment => {})
+        end
+
+
 end
