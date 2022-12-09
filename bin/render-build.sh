@@ -2,12 +2,12 @@
 # exit on error
 set -o errexit
 
-bundle install
-# clean
+# Build commands for front end to create the production build
 rm -rf public
-# build
 npm install --prefix client && npm run build --prefix client
-# migrate
-bundle exec rake db:migrate
-# postbuild
 cp -a client/build/. public/
+
+# Build commands for back end
+bundle install
+bundle exec rails db:migrate 
+bundle exec rails db:seed # if you have seed data, run this command for the initial deploy only to avoid duplicate records
