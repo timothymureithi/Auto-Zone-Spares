@@ -1,5 +1,5 @@
-**FRONTEND**
-- [Backend](https://github.com/timothymureithi/Auto-Zone-Spares-Frontend)
+**LINK**
+- [FRONTEND](https://github.com/timothymureithi/Auto-Zone-Spares-Frontend)
 
 
 # AUTOZONE
