@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+   url: <%= ENV['DATABASE_URL'] %>
   database: react_ecommerce_backend_production
   username: react_ecommerce_backend
   password: <%= ENV['REACT_ECOMMERCE_BACKEND_DATABASE_PASSWORD'] %>
