@@ -10,6 +10,8 @@ class Api::V1::ReviewsController < ApplicationController
          render json: @review
     end
 
+
+
     def create
         @review = @product.reviews.new(review_params)
         @review.save
@@ -28,6 +30,7 @@ class Api::V1::ReviewsController < ApplicationController
         @product = Product.find(params[:product_id])
       end
 
+      
       def review_params
         params.require(:review).permit(:product_id, :name, :rating, :comment)
       end
